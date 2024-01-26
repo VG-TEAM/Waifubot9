@@ -1,9 +1,3 @@
-"""
-Module made by t.me/ZrekryuDev
-Date: Fri, Dec 15 2023
-Supoort chat at t.me/KangersChat
-"""
-
 import asyncio
 import os
 import uuid
@@ -25,7 +19,7 @@ COMMANDS = [
     "grs", 
     "gis",
     "pp"
-    ]
+]
 
 class STRINGS:
     REPLY_TO_MEDIA = "ℹ️ Please reply to a message that contains one of the supported media types, such as a photo, sticker, or image file."
