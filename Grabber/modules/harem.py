@@ -40,24 +40,22 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['anime'])}
 
     for anime, characters in current_grouped_characters.items():
-    harem_message += f'\n<b>{anime} ({len(characters)}/{await collection.count_documents({"anime": anime})})</b>'
+        harem_message += f'\n<b>{anime} {len(characters)}/{await collection.count_documents({"anime": anime})}</b>\n'
 
-    for character in characters:
-        character_id = character['id']
-        db_character = await collection.find_one({'id': character_id})
+        for character in characters:
+            character_id = character['id']
+            db_character = await collection.find_one({'id': character_id})
 
-        if db_character:
-            rarity = db_character.get('rarity', 'Unknown Rarity')
-            count = character_counts[character_id]
-            harem_message += f'Character Name: {character["name"]} (ID: {character_id})\n'
-            harem_message += f'Rarity: {rarity}\n'
-            harem_message += f'Anime: {anime}\n'
-        else:
-            # Handle the case when character information is not found in the database
-            count = character_counts[character_id]
-            harem_message += f'Character ID: {character_id} (Unknown Rarity) {character["name"]} ×{count}\n'
+            if db_character:
+                rarity = db_character.get('rarity', 'Unknown Rarity')
+                count = character_counts[character_id]
+                harem_message += f'{character_id} ({rarity}) {character["name"]} ×{count}\n'
+            else:
+                # Handle the case when character information is not found in the database
+                count = character_counts[character_id]
+                harem_message += f'{character_id} (Unknown Rarity) {character["name"]} ×{count}\n'
 
-total_count = len(user['characters'])
+    total_count = len(user['characters'])
 
     keyboard = [[InlineKeyboardButton(f"See Collection ({total_count})", switch_inline_query_current_chat=f"collection.{user_id}")]]
 
