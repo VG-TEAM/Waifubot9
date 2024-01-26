@@ -22,7 +22,7 @@ httpx_client = httpx.AsyncClient(timeout=60)
 
 COMMANDS = [
     "reverse",
-    "grs"
+    "grs", 
     "gis",
     "pp"
     ]
