@@ -47,13 +47,20 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
         harem_message += f'\n<b>{anime} {len(characters)}/{await collection.count_documents({"anime": anime})}</b>\n'
 
         for character in characters:
-            
-            count = character_counts[character['id']]  
-            harem_message += f'{character["id"]} {character["name"]} ×{count}\n'
+            character_id = character['id']
+            db_character = await collection.find_one({'id': character_id})
 
+            if db_character:
+                rarity = db_character.get('rarity', 'Unknown Rarity')
+                count = character_counts[character_id]
+                harem_message += f'ID - {character_id} \n rarity - {rarity} \n name - {character["name"]} ×{count}\n'
+            else:
+                # Handle the case when character information is not found in the database
+                count = character_counts[character_id]
+                harem_message += f'{character_id} (Unknown Rarity) {character["name"]} ×{count}\n'
 
     total_count = len(user['characters'])
-    
+
     keyboard = [[InlineKeyboardButton(f"See Collection ({total_count})", switch_inline_query_current_chat=f"collection.{user_id}")]]
 
 
