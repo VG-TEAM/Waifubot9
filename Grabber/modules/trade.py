@@ -159,12 +159,12 @@ async def gift(client, message):
     
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Confirm Gift", callback_data="confirm_gift")],
-            [InlineKeyboardButton("Cancel Gift", callback_data="cancel_gift")]
+            [InlineKeyboardButton("Cᴏɴғɪʀᴍ Gɪғᴛ 🎁", callback_data="confirm_gift")],
+            [InlineKeyboardButton("Cᴀɴᴄᴇʟ Gɪғᴛ ❌", callback_data="cancel_gift")]
         ]
     )
 
-    await message.reply_text(f"do You Really Wanns To Gift {message.reply_to_message.from_user.mention} ?", reply_markup=keyboard)
+    await message.reply_text(f"Dᴏ Yᴏᴜ Rᴇᴀʟʟʏ Wᴀɴɴs Tᴏ Gɪғᴛ? {message.reply_to_message.from_user.mention} ?", reply_markup=keyboard)
 
 @Grabberu.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_gift", "cancel_gift"]))
 async def on_callback_query(client, callback_query):
