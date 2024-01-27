@@ -60,7 +60,7 @@ async def on_google_lens_search(client: Client, message: Message) -> None:
         start_time = asyncio.get_event_loop().time()
         response = await httpx_client.get(ENDPOINT, params=params)
     elif (reply := message.reply_to_message):
-        if reply.media and reply.media.type in (MessageMediaType.PHOTO, MessageMediaType.STICKER, MessageMediaType.DOCUMENT):
+        if reply.media and reply.media in (MessageMediaType.PHOTO, MessageMediaType.STICKER, MessageMediaType.DOCUMENT):
             status_msg = await message.reply(STRINGS.DOWNLOADING_MEDIA)
             file_path = f"temp/{uuid.uuid4()}"
             try:
