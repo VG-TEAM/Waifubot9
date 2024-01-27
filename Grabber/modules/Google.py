@@ -16,6 +16,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup
 )
 from pyrogram import Client, filters
+from telegram.ext import CommandHandler, CallbackContext
 
 # Replace "YourRobot" with your module name.
 from Grabber import application
