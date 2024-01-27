@@ -18,7 +18,7 @@ from pyrogram.types import (
 from pyrogram import Client, filters
 
 # Replace "YourRobot" with your module name.
-from Grabber import pbot
+from Grabber import api_hash, api_id
 
 ENDPOINT = "https://sasta-api.vercel.app/googleLensSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
