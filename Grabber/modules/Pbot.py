@@ -1,7 +1,7 @@
 """
-Module made by t.me/ZrekryuDev
+Module made by t.me/
 Date: Fri, Dec 15 2023
-Support chat at t.me/KangersChat
+Support chat at t.me/
 """
 
 import asyncio
@@ -47,7 +47,7 @@ class STRINGS:
 🔗 <b>Page Link:</b> <a href="{search_url}">Link</a>
 
 ⌛️ <b>Time Taken:</b> <code>{time_taken}</code> ms.
-🧑‍💻 <b>Credits:</b> @KangersNetwork
+🧑‍💻 <b>Credits:</b> @sukuna201
     """
     OPEN_SEARCH_PAGE = "↗️ Open Search Page"
 
