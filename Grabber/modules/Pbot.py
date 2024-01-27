@@ -60,30 +60,31 @@ async def on_google_lens_search(client: Client, message: Message) -> None:
         start_time = asyncio.get_event_loop().time()
         response = await httpx_client.get(ENDPOINT, params=params)
     elif (reply := message.reply_to_message):
-        if reply.media and reply.media.type not in (MessageMediaType.PHOTO, MessageMediaType.STICKER, MessageMediaType.DOCUMENT):
-            await message.reply(STRINGS.UNSUPPORTED_MEDIA_TYPE)
-            return
-        status_msg = await message.reply(STRINGS.DOWNLOADING_MEDIA)
-        file_path = f"temp/{uuid.uuid4()}"
-        try:
-            await reply.download(file_path)
-        except Exception as exc:
-            text = STRINGS.EXCEPTION_OCCURRED.format(exc)
-            await message.reply(text)
+        if reply.media and reply.media.type in (MessageMediaType.PHOTO, MessageMediaType.STICKER, MessageMediaType.DOCUMENT):
+            status_msg = await message.reply(STRINGS.DOWNLOADING_MEDIA)
+            file_path = f"temp/{uuid.uuid4()}"
+            try:
+                await reply.download(file_path)
+            except Exception as exc:
+                text = STRINGS.EXCEPTION_OCCURRED.format(exc)
+                await message.reply(text)
+                try:
+                    os.remove(file_path)
+                except FileNotFoundError:
+                    pass
+                return
+            with open(file_path, "rb") as image_file:
+                start_time = asyncio.get_event_loop().time()
+                files = {"file": image_file}
+                await status_msg.edit(STRINGS.UPLOADING_TO_API_SERVER)
+                response = await httpx_client.post(ENDPOINT, files=files)
             try:
                 os.remove(file_path)
             except FileNotFoundError:
                 pass
+        else:
+            await message.reply(STRINGS.UNSUPPORTED_MEDIA_TYPE)
             return
-        with open(file_path, "rb") as image_file:
-            start_time = asyncio.get_event_loop().time()
-            files = {"file": image_file}
-            await status_msg.edit(STRINGS.UPLOADING_TO_API_SERVER)
-            response = await httpx_client.post(ENDPOINT, files=files)
-        try:
-            os.remove(file_path)
-        except FileNotFoundError:
-            pass
     if response.status_code == 404:
         text = STRINGS.EXCEPTION_OCCURRED.format(response.json()["error"])
         await message.reply(text)
