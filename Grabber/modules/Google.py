@@ -1,3 +1,9 @@
+"""
+Module made by t.me/ZrekryuDev
+Date: Fri, Dec 15 2023
+Supoort chat at t.me/KangersChat
+"""
+
 import asyncio
 import os
 import uuid
@@ -11,15 +17,18 @@ from pyrogram.types import (
     )
 from pyrogram import Client, filters
 
+# Replace "YourRobot" with your module name.
+from Grabber import application
+
 ENDPOINT = "https://sasta-api.vercel.app/googleImageSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
 
 COMMANDS = [
     "reverse",
-    "grs", 
+    "grs"
     "gis",
     "pp"
-]
+    ]
 
 class STRINGS:
     REPLY_TO_MEDIA = "ℹ️ Please reply to a message that contains one of the supported media types, such as a photo, sticker, or image file."
@@ -42,6 +51,7 @@ class STRINGS:
     """
     OPEN_SEARCH_PAGE = "↗️ Open Search Page"
 
+@application.on_message(filters.command(COMMANDS))
 async def on_google_lens_search(client: Client, message: Message) -> None:
     if len(message.command) > 1:
         image_url = message.command[1]
