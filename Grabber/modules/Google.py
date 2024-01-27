@@ -122,4 +122,4 @@ async def on_google_lens_search(_: Client, message: Message) -> None:
     await message.reply(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
     await status_msg.delete()
     
-application.add_handler(CommandHandler("ongooglelenssearch", pp, block=False))
+application.add_handler(CommandHandler("ongooglelenssearch", ongooglelenssearch, block=False))
