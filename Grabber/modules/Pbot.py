@@ -7,6 +7,9 @@ from pyrogram.enums import MessageMediaType
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client, filters
 
+from .pbot import pbot
+
+
 ENDPOINT = "https://sasta-api.vercel.app/googleLensSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
 
