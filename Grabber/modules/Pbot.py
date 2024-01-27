@@ -18,7 +18,7 @@ from pyrogram.types import (
 from pyrogram import Client, filters
 
 # Replace "YourRobot" with your module name.
-from Grabber import pbot
+from Grabber import Grabberu
 
 ENDPOINT = "https://sasta-api.vercel.app/googleImageSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
@@ -51,7 +51,7 @@ class STRINGS:
     """
     OPEN_SEARCH_PAGE = "↗️ Open Search Page"
 
-@pbot.on_message(filters.command(COMMANDS))
+@Grabberu.on_message(filters.command(COMMANDS))
 async def on_google_lens_search(client: Client, message: Message) -> None:
     if len(message.command) > 1:
         image_url = message.command[1]
