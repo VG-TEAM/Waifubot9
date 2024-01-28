@@ -19,8 +19,8 @@ LOGGER = logging.getLogger(__name__)
 OWNER_ID = '5932230962'
 sudo_users = ["5932230962", "6591212980", "6090374191", "5513694222", "5316914263", "5538108947"]
 GROUP_ID = "-1001875834087"
-TOKEN = "6304832083:AAH2r5CjrSmIa2GKxVBDmjxuDjQy9dsykZo"
-mongo_url = "mongodb+srv://vikas:vikas@vikas.yfezexk.mongodb.net/?retryWrites=true&w=majority"
+TOKEN = "6512496443:AAEoBRxK2cP4l3qK8TKbDx54F8Mw9398eTs"
+mongo_url = "mongodb+srv://husbando:husbando@cluster0.pipkivx.mongodb.net/?retryWrites=true&w=majority"
 PHOTO_URL = ["/https://telegra.ph/file/aa06eb4b312f456e1fd28.jpg", "https://telegra.ph/file/aa06eb4b312f456e1fd28.jpg"]
 SUPPORT_CHAT = "shizka_x_sukuna"
 UPDATE_CHAT = "shizka_x_sukuna"
