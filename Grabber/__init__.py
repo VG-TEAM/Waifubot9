@@ -16,16 +16,16 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-OWNER_ID = '6743275108'
-sudo_users = ["6069337486", "6591212980", "6090374191", "5513694222", "5316914263", "5538108947"]
-GROUP_ID = "-1002059626060"
-TOKEN = "6786511875:AAE4M9zpoRNIHdVlkfeuigMgFP7cpQ8zBsw"
-mongo_url = "mongodb+srv://Komi:Aarught5645@cluster0.8usl8ul.mongodb.net/?retryWrites=true&w=majority"
+OWNER_ID = '5932230962'
+sudo_users = ["5932230962", "6591212980", "6090374191", "5513694222", "5316914263", "5538108947"]
+GROUP_ID = "-1001875834087"
+TOKEN = "6304832083:AAH2r5CjrSmIa2GKxVBDmjxuDjQy9dsykZo"
+mongo_url = "mongodb+srv://vikas:vikas@vikas.yfezexk.mongodb.net/?retryWrites=true&w=majority"
 PHOTO_URL = ["/https://telegra.ph/file/aa06eb4b312f456e1fd28.jpg", "https://telegra.ph/file/aa06eb4b312f456e1fd28.jpg"]
 SUPPORT_CHAT = "shizka_x_sukuna"
 UPDATE_CHAT = "shizka_x_sukuna"
 BOT_USERNAME = "Dark_waifu_Bot"
-CHARA_CHANNEL_ID = "-1002059626060"
+CHARA_CHANNEL_ID = "-1001875834087"
 api_id = "25635673"
 api_hash = "ec69ce8b56c71541499c914fabd08286"
 
