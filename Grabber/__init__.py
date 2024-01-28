@@ -28,7 +28,8 @@ BOT_USERNAME = "Dark_waifu_Bot"
 CHARA_CHANNEL_ID = "-1001875834087"
 api_id = "25635673"
 api_hash = "ec69ce8b56c71541499c914fabd08286"
-
+JOINLOGS = "-1001875834087"
+LEAVELOGS = "-1001875834087"
 
 application = Application.builder().token(TOKEN).build()
 Grabberu = Client("Grabber", api_id, api_hash, bot_token=TOKEN)
