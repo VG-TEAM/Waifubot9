@@ -114,7 +114,7 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
 
 
 async def broadcast(update: Update, context: CallbackContext) -> None:
-    OWNER_ID = '6069337486'  # Set the OWNER_ID directly within the function
+    OWNER_ID = '5932230962'  # Set the OWNER_ID directly within the function
 
     if str(update.effective_user.id) == OWNER_ID:
         if update.message.reply_to_message is None:
@@ -153,7 +153,7 @@ async def broadcast(update: Update, context: CallbackContext) -> None:
 
 
 async def broadcast2(update: Update, context: CallbackContext) -> None:
-    OWNER_ID = '6069337486'  # Set the OWNER_ID directly within the function
+    OWNER_ID = '5932230962'  # Set the OWNER_ID directly within the function
 
     if str(update.effective_user.id) == OWNER_ID:
         if update.message.reply_to_message is None:
@@ -181,7 +181,7 @@ async def broadcast2(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text('Only the owner can use this command for group broadcast.')
 
 async def stats(update: Update, context: CallbackContext) -> None:
-    OWNER_ID = ['6069337486']  # Replace '123456789' with the actual owner ID
+    OWNER_ID = ['5932230962']  # Replace '123456789' with the actual owner ID
 
     if str(update.effective_user.id) not in OWNER_ID:
         await update.message.reply_text('Only for sudo users...')
@@ -238,8 +238,8 @@ async def brotu(update: Update, context: CallbackContext) -> None:
 
     keyboard = [
         [
-            InlineKeyboardButton("Add to Group", url='http://t.me/Dark_waifu_Bot?startgroup=new'),
-            InlineKeyboardButton("Support Group", url='https://t.me/dark_world_231')
+            InlineKeyboardButton("Add to Group", url='http://t.me/Husbando_x_robot?startgroup=new'),
+            InlineKeyboardButton("Support Group", url='https://t.me/Grab_your_waifu_WH')
         ]
     ]
 
@@ -248,7 +248,7 @@ async def brotu(update: Update, context: CallbackContext) -> None:
     # Send the photo with the inline keyboard and a message
     await update.message.reply_photo(photo=photo_url, caption="𝖧𝖾𝗒 sukuna 𝗎𝗌𝖾𝗋𝗌, 𝗂𝖿 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍 𝗍𝗈 𝖺𝖽𝖽 𝗒𝗈𝗎𝗋 𝖿𝖺𝗏𝗈𝗋𝗂𝗍𝖾 𝖼𝗁𝖺𝗋𝖺𝖼𝗍𝖾𝗋. 𝖸𝗈𝗎 𝖼𝖺𝗇 𝖺𝖽𝖽 𝖺𝗇𝗒 𝖼𝗁𝖺𝗋𝖺𝖼𝗍𝖾𝗋 𝗂𝗇 𝗍𝗁𝗂𝗌 𝗅𝗂𝗄𝖾 𝖠𝗇𝗂𝗆𝖾 , 𝖼𝖺𝗋𝗍𝗈𝗈𝗇 𝖺𝗇𝖽 𝖬𝖺𝗋𝗏𝖾𝗅 𝖾𝗍𝖼. 𝗒𝗈𝗎 𝖼𝖺𝗇 𝖽𝗆 𝗆𝖾 :- @sukuna201", reply_markup=reply_markup)
 
-application.add_handler(CommandHandler('brotu', brotu, block=False))
+application.add_handler(CommandHandler('owner', brotu, block=False))
 application.add_handler(CommandHandler('ctop', ctop, block=False))
 application.add_handler(CommandHandler('stats', stats, block=False))
 application.add_handler(CommandHandler('TopGroups', global_leaderboard, block=False))
